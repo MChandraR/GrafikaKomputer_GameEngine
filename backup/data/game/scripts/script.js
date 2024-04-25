@@ -1,0 +1,9 @@
+class script {
+    onStart(){
+
+    }
+
+    onUpdate(){
+        
+    }
+}
