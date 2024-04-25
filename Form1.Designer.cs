@@ -29,7 +29,6 @@ namespace Engine
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox comboBox1;
             this.panel1 = new System.Windows.Forms.Panel();
             this.List = new System.Windows.Forms.DataGridView();
             this.Object = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,12 +36,15 @@ namespace Engine
             this.AddObject = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_Tipe = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Simpan = new System.Windows.Forms.Button();
             this.tb_YSize = new System.Windows.Forms.TextBox();
             this.tb_XSize = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.tb_Gravity = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tb_Y = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_X = new System.Windows.Forms.TextBox();
@@ -60,27 +62,13 @@ namespace Engine
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_HapusObject = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tb_Gravity = new System.Windows.Forms.TextBox();
-            comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.List)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] {
-            "Lingkaran",
-            "Rectangle",
-            "Segitiga"});
-            comboBox1.Location = new System.Drawing.Point(54, 172);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(143, 21);
-            comboBox1.TabIndex = 4;
             // 
             // panel1
             // 
@@ -147,7 +135,7 @@ namespace Engine
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel2.Controls.Add(comboBox1);
+            this.panel2.Controls.Add(this.cb_Tipe);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btn_Simpan);
             this.panel2.Controls.Add(this.tb_YSize);
@@ -169,6 +157,18 @@ namespace Engine
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(215, 467);
             this.panel2.TabIndex = 4;
+            // 
+            // cb_Tipe
+            // 
+            this.cb_Tipe.FormattingEnabled = true;
+            this.cb_Tipe.Items.AddRange(new object[] {
+            "Lingkaran\t",
+            "Rectangle",
+            "Segitiga"});
+            this.cb_Tipe.Location = new System.Drawing.Point(54, 171);
+            this.cb_Tipe.Name = "cb_Tipe";
+            this.cb_Tipe.Size = new System.Drawing.Size(143, 21);
+            this.cb_Tipe.TabIndex = 4;
             // 
             // button2
             // 
@@ -228,6 +228,24 @@ namespace Engine
             this.label8.TabIndex = 1;
             this.label8.Text = "Size";
             this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // tb_Gravity
+            // 
+            this.tb_Gravity.Location = new System.Drawing.Point(54, 199);
+            this.tb_Gravity.Name = "tb_Gravity";
+            this.tb_Gravity.Size = new System.Drawing.Size(143, 20);
+            this.tb_Gravity.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
+            this.label10.Location = new System.Drawing.Point(8, 202);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Gravity";
             // 
             // tb_Y
             // 
@@ -315,7 +333,7 @@ namespace Engine
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(4, 39);
+            this.test.Location = new System.Drawing.Point(25, 34);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(35, 13);
             this.test.TabIndex = 5;
@@ -345,7 +363,6 @@ namespace Engine
             this.panel4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel4.Controls.Add(this.btn_EditScript);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.test);
             this.panel4.Location = new System.Drawing.Point(16, 527);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(215, 149);
@@ -375,6 +392,7 @@ namespace Engine
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel5.Controls.Add(this.test);
             this.panel5.Location = new System.Drawing.Point(265, 527);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(977, 149);
@@ -390,24 +408,6 @@ namespace Engine
             this.btn_HapusObject.Text = "-";
             this.btn_HapusObject.UseVisualStyleBackColor = true;
             this.btn_HapusObject.Click += new System.EventHandler(this.RemoveObject_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(8, 202);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Gravity";
-            // 
-            // tb_Gravity
-            // 
-            this.tb_Gravity.Location = new System.Drawing.Point(54, 199);
-            this.tb_Gravity.Name = "tb_Gravity";
-            this.tb_Gravity.Size = new System.Drawing.Size(143, 20);
-            this.tb_Gravity.TabIndex = 2;
             // 
             // Parent
             // 
@@ -433,6 +433,8 @@ namespace Engine
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,6 +473,7 @@ namespace Engine
         private CefSharp.WinForms.ChromiumWebBrowser Browser;
         private System.Windows.Forms.TextBox tb_Gravity;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cb_Tipe;
     }
 }
 

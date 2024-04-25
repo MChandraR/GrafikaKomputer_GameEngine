@@ -3,6 +3,7 @@
 class input{
     keyUp = {};
     keyDown = {};
+    space = String.fromCharCode(32);
 
     constructor(){
         document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
@@ -33,6 +34,8 @@ class input{
         this.keyUp['x'] = 0;
         this.keyUp['y'] = 0;
         this.keyUp['z'] = 0;
+        this.keyUp[String.fromCharCode(32)] = 0;
+        this.keyUp['Shift'] = 0;
         this.keyDown['a'] = 0;
         this.keyDown['b'] = 0;
         this.keyDown['c'] = 0;
@@ -59,6 +62,8 @@ class input{
         this.keyDown['x'] = 0;
         this.keyDown['y'] = 0;
         this.keyDown['z'] = 0;
+        this.keyDown[String.fromCharCode(32)] = 0;
+        this.keyDown['Shift'] = 0;
 
     }
 
@@ -70,9 +75,9 @@ class input{
         return keyUp.keys[key];
     }
 
-
-
     keyDownHandler(e) {
+        console.log(e.key);
+        console.log(String.fromCharCode(32) == e.key);
         this.keyDown[e.key] = 1;
         this.keyUp[e.key] = 0;
 

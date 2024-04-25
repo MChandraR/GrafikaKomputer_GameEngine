@@ -16,7 +16,8 @@ class mainScene{
         this.gobj = gameobjects.getgameobject();
         for(let idx in this.gobj){
             let obj = this.gobj[idx];
-            gameObjects[obj.id] = new object(obj.id, obj.name,obj.transform.xSize, obj.transform.ySize, obj.transform.x, obj.transform.y, obj.gravity);
+            console.log(obj);
+            gameObjects[obj.id] = new object(obj.id, obj.name,obj.transform.xSize, obj.transform.ySize, obj.transform.x, parseFloat(obj.transform.y), obj.tipe, parseFloat(obj.gravity));
         }
         console.log(gameObjects);
     }

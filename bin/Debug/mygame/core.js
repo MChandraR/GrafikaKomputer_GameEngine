@@ -20,7 +20,7 @@ class cnvs{
 
 class gameobject{
     constructor(id,name,sizeX,sizeY,x,y){
-       this.objects = [{"id":"0","name":"Game Object 0","type":"1","gravity":0.0,"transform":{"x":0.0,"y":5.0,"xSize":25.0,"ySize":5.0}}] ;
+       this.objects = [{"id":"0","name":"Game Object 0","type":"1","gravity":"0.3","tipe":0,"transform":{"x":0.0,"y":5.0,"xSize":12.0,"ySize":50.0}},{"id":"1","name":"Game Object 1","type":"1","gravity":"0","tipe":1,"transform":{"x":0.0,"y":5.0,"xSize":100.0,"ySize":50.0}}] ;
     }
     
 
@@ -39,6 +39,7 @@ class gameobject{
 class input{
     keyUp = {};
     keyDown = {};
+    space = String.fromCharCode(32);
 
     constructor(){
         document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
@@ -69,6 +70,8 @@ class input{
         this.keyUp['x'] = 0;
         this.keyUp['y'] = 0;
         this.keyUp['z'] = 0;
+        this.keyUp[String.fromCharCode(32)] = 0;
+        this.keyUp['Shift'] = 0;
         this.keyDown['a'] = 0;
         this.keyDown['b'] = 0;
         this.keyDown['c'] = 0;
@@ -95,6 +98,8 @@ class input{
         this.keyDown['x'] = 0;
         this.keyDown['y'] = 0;
         this.keyDown['z'] = 0;
+        this.keyDown[String.fromCharCode(32)] = 0;
+        this.keyDown['Shift'] = 0;
 
     }
 
@@ -106,9 +111,9 @@ class input{
         return keyUp.keys[key];
     }
 
-
-
     keyDownHandler(e) {
+        console.log(e.key);
+        console.log(String.fromCharCode(32) == e.key);
         this.keyDown[e.key] = 1;
         this.keyUp[e.key] = 0;
 
@@ -150,8 +155,9 @@ class object extends transform{
     sizeX = 0;
     sizeY = 0;
     gravity = 0;
+    tipe = 0;
 
-    constructor(id,name,sizeX,sizeY,x,y,gravity){
+    constructor(id,name,sizeX,sizeY,x,y,tipe,gravity){
         super();
         this.id = id;
         this.name = name;
@@ -160,12 +166,14 @@ class object extends transform{
         this.x = x;
         this.y = y;
         this.gravity = gravity;
+        this.tipe = tipe;
     }
 
     draw(canvas){
         if(this.y < canvas.height) this.y += this.gravity;
         canvas.context.beginPath();
-        canvas.context.arc(this.x, this.y, this.sizeX, 0, Math.PI * 2);
+        if(this.tipe==0)canvas.context.arc(this.x, this.y, this.sizeX, 0, Math.PI * 2);
+        else if(this.tipe==1)canvas.context.rect(this.x, this.y, this.sizeX, this.sizeY);
         canvas.context.fillStyle = "#0095DD";
         canvas.context.fill();
         canvas.context.closePath();
@@ -209,7 +217,8 @@ class mainScene{
         this.gobj = gameobjects.getgameobject();
         for(let idx in this.gobj){
             let obj = this.gobj[idx];
-            gameObjects[obj.id] = new object(obj.id, obj.name,obj.transform.xSize, obj.transform.ySize, obj.transform.x, obj.transform.y, obj.gravity);
+            console.log(obj);
+            gameObjects[obj.id] = new object(obj.id, obj.name,obj.transform.xSize, obj.transform.ySize, obj.transform.x, parseFloat(obj.transform.y), obj.tipe, parseFloat(obj.gravity));
         }
         console.log(gameObjects);
     }

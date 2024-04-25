@@ -11,9 +11,10 @@ namespace Engine
         public string id { get; set; }
         public string name { get; set; }
         public string type { get; set; }
-        public float gravity { get; set; }
+        public string gravity { get; set; }
+        public int tipe { get; set; }
         public Transform transform { get; set; }
-        public GameObject(string id,string name, string type, float x, float y, float xSize, float ySize, float gravity)
+        public GameObject(string id,string name, string type, float x, float y, float xSize, float ySize, int tipe,string gravity)
         {
             this.id = id;
             this.name = name;
@@ -24,6 +25,7 @@ namespace Engine
             this.transform.xSize = xSize;
             this.transform.ySize = ySize;
             this.gravity = gravity;
+            this.tipe = tipe;
         }
 
         public class Transform

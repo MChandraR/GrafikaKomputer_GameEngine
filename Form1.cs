@@ -17,6 +17,7 @@ namespace Engine
     public partial class Parent : Form
     {
         int targetObject = 0;
+        int tipeSelected = 0;
         FormEditScript formEdit;
         static String dir = System.IO.Directory.GetCurrentDirectory();
         string dirName = dir + "/mygame/"; // Ganti dengan path direktori yang diinginkan
@@ -26,7 +27,7 @@ namespace Engine
         {
             formEdit = new FormEditScript(this);
             InitializeComponent();
-            Browser.Load("file:///D:/Project/Desktop/Engine/Engine/bin/Debug/mygame/index.html");
+            Browser.Load(dirName + "index.html");
             test.Text = dir ;
             loadProject();
         }
@@ -44,7 +45,7 @@ namespace Engine
         float post = 0f;
         private void AddObject_Click(object sender, EventArgs e)
         {
-            GameObject newObj = new GameObject(gameObjects.Count.ToString(), "Game Object " + gameObjects.Count.ToString(), "1", post, 5f, 100f, 5f, 0f);
+            GameObject newObj = new GameObject(gameObjects.Count.ToString(), "Game Object " + gameObjects.Count.ToString(), "1", post, 5f, 100f, 50f,1, "0");
             gameObjects.Add(newObj);
             List.Rows.Add(newObj.name + gameObjects.Count.ToString(), gameObjects.Count);
             loadGame();
@@ -152,7 +153,7 @@ namespace Engine
 
 
             Console.WriteLine("Proses selesai.");
-            Browser.Load("file:///D:/Project/Desktop/Engine/Engine/bin/Debug/mygame/index.html");
+            Browser.Load(dirName + "index.html");
         }
 
         private void open(object sender, EventArgs e)
@@ -177,6 +178,7 @@ namespace Engine
             tb_XSize.Text = gameObjects[e.RowIndex].transform.xSize.ToString();
             tb_YSize.Text = gameObjects[e.RowIndex].transform.ySize.ToString();
             tb_Gravity.Text = gameObjects[e.RowIndex].gravity.ToString();
+            cb_Tipe.SelectedIndex = gameObjects[e.RowIndex].tipe;
         }
 
         private void Browser_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
@@ -192,11 +194,12 @@ namespace Engine
         private void btn_Simpan_Click(object sender, EventArgs e)
         {
             gameObjects[targetObject].name = tb_Name.Text;
-            gameObjects[targetObject].gravity = float.Parse(tb_Gravity.Text);
+            gameObjects[targetObject].gravity = tb_Gravity.Text;
             gameObjects[targetObject].transform.x = float.Parse(tb_X.Text);
             gameObjects[targetObject].transform.y = float.Parse(tb_Y.Text);
             gameObjects[targetObject].transform.xSize = float.Parse(tb_XSize.Text);
             gameObjects[targetObject].transform.ySize = float.Parse(tb_YSize.Text);
+            gameObjects[targetObject].tipe = cb_Tipe.SelectedIndex;
             loadGame();
         }
 
@@ -217,6 +220,16 @@ namespace Engine
                 formEdit.getTB().Text = canvasReader.ReadToEnd();  
             }
             formEdit.Show();
+        }
+
+        private void cbTipe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tipeSelected = cb_Tipe.SelectedIndex;
+        }
+
+        private void cbTipe_SelectedValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
     
