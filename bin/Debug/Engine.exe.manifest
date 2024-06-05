@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Engine.exe" size="25488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Engine.exe" size="51600">
       <assemblyIdentity name="Engine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rYcMcSpyMUYWQdK51bTJ/J4tUDCJaK+7YIi9FGu3LDo=</dsig:DigestValue>
+        <dsig:DigestValue>bVYpbQrQ7djum5sd9t5mY5Ijkyd1uP2P8uB6fyu8Ck4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

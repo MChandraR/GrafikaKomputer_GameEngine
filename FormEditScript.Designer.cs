@@ -35,7 +35,7 @@ namespace Engine
             // tb_EditScript
             // 
             this.tb_EditScript.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tb_EditScript.Font = new System.Drawing.Font("Modern No. 20", 11.95F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_EditScript.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_EditScript.Location = new System.Drawing.Point(0, 0);
             this.tb_EditScript.Name = "tb_EditScript";
             this.tb_EditScript.Size = new System.Drawing.Size(800, 450);

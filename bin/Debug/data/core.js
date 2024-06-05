@@ -3,8 +3,11 @@ $mainScene
 const mainScenes = new mainScene();
 
 let interval ;
+mainScenes.setUp();
 function draw() {
-    mainScenes.onUpdate(interval);
+    mainScenes.onUpdate();
+    requestAnimationFrame(draw);
 }
 
-interval = setInterval(draw, 10);
+draw();
+// interval = setInterval(draw, 10);

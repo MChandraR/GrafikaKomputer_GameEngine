@@ -204,3 +204,5 @@ D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.application
 D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.csproj.CopyComplete
 D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.exe
 D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.pdb
+D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.AssetSelector.resources
+D:\Project\Desktop\GrafikaKomputer_GameEngine\obj\Debug\Engine.ProjectLoader.resources

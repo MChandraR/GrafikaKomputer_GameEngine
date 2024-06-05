@@ -16,7 +16,7 @@ namespace Engine
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Parent());
+            Application.Run(new ProjectLoader());
         }
     }
 }

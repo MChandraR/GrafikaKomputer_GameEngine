@@ -3,6 +3,8 @@ class transform{
     sizeY = 0;
     x = 0;
     y = 0;
+    tempX = 0;
+    tempY = 0;
 
     constructor(){
         this.x = 0;

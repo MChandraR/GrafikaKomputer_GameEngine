@@ -95,11 +95,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AssetSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AssetSelector.Designer.cs">
+      <DependentUpon>AssetSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEditScript.cs">
       <SubType>Form</SubType>
@@ -109,12 +115,25 @@
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectLoader.Designer.cs">
+      <DependentUpon>ProjectLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ResourceManager.cs" />
+    <EmbeddedResource Include="AssetSelector.resx">
+      <DependentUpon>AssetSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditScript.resx">
       <DependentUpon>FormEditScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectLoader.resx">
+      <DependentUpon>ProjectLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

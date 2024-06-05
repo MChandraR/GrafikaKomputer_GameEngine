@@ -14,7 +14,6 @@ namespace Engine
     public partial class FormEditScript : Form
     {
         static String dir = System.IO.Directory.GetCurrentDirectory();
-        string dirName = dir + "/mygame/"; // Ganti dengan path direktori yang diinginkan
         Parent mainForm;
 
         public FormEditScript(Parent form)
@@ -44,7 +43,7 @@ namespace Engine
         {
             if (System.Convert.ToInt32(e.KeyChar) == 19)
             {
-                using (StreamWriter writer = new StreamWriter(dirName + "game/scripts/script.js"))
+                using (StreamWriter writer = new StreamWriter(mainForm.dirName + "/game/scripts/script.js"))
                 {
                     writer.Write(tb_EditScript.Text);
                 }

@@ -3,31 +3,31 @@ $gameObject
 $inputs
 $objects
 const canvas = new cnvs();
-const gameobjects = new gameobject();
+const gameObjects = new gameobject();
 $script
 let scripts = new script();
-let gameObjects = {};
+
 
 class mainScene{
     mainCanvas = canvas.mainCanvas;
     gobj = [];
 
     constructor(){
-        this.gobj = gameobjects.getgameobject();
-        for(let idx in this.gobj){
-            let obj = this.gobj[idx];
-            console.log(obj);
-            gameObjects[obj.id] = new object(obj.id, obj.name,obj.transform.xSize, obj.transform.ySize, obj.transform.x, parseFloat(obj.transform.y), obj.tipe, parseFloat(obj.gravity));
-        }
-        console.log(gameObjects);
+        console.log(gameObjects.gameObject);
+        // this.audio = new Audio('game/asset/bgm.mp3');
+        // this.audio.play();
     }
 
-    onUpdate(interval){
+    setUp(){
+        scripts.onStart();
+    }
+
+    onUpdate(){
         canvas.context.clearRect(0, 0, canvas.width, canvas.height);
-        for(let tag in gameObjects){
-            gameObjects[tag].draw(canvas);
-        }
+        canvas.draw();
         scripts.onUpdate();
+        gameObjects.collisionDetect();
+        gameObjects.renderObjects(canvas);
         //clearInterval(interval);
     }
 
@@ -35,4 +35,25 @@ class mainScene{
         
     }
 }
+// var audio = new Audio('game/asset/bgm.mp3');
+// audio.volume = .25;
+// audio.loop = true;
+// var audio2 = new Audio('game/asset/bgms.mp3');
+// function playA(){
+//     audio2.play();
+// }
 
+//         // Fungsi untuk memutar audio setelah interaksi pengguna
+//         function initializeAndPlayAudio() {
+//             audio.play().catch(error => {
+//                 console.log('Playback failed: ' + error);
+//             });
+
+           
+
+//             // Menghapus event listener setelah pertama kali dijalankan
+//             document.removeEventListener('click', initializeAndPlayAudio);
+//         }
+
+//         // Menambahkan event listener ke dokumen
+//         document.addEventListener('click', initializeAndPlayAudio);
